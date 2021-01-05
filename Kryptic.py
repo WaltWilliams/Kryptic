@@ -312,6 +312,7 @@ home_string = "This program performs a One-Time-Pad encryption and decryption.\n
     # Main Notebook (Tab view)
 nb_control = ttk.Notebook(main_window, height=200)
 
+# ------------------------------------------------------------------------------------------------------------
 # Tabs
 home_tab = ttk.Frame(nb_control, relief=RAISED)
 nb_control.add(home_tab, text=" Home ")
@@ -320,42 +321,45 @@ hm_st = scrolledtext.ScrolledText(home_tab, wrap=WORD)
 hm_st.insert(INSERT, home_string)
 hm_st.pack(fill=X)
 
-encTab = ttk.Frame(nb_control, relief=RAISED)
-nb_control.add(encTab, text=" Encrypt ")
+enc_tab = ttk.Frame(nb_control, relief=RAISED)
+nb_control.add(enc_tab, text=" Encrypt ")
 nb_control.pack(expand=YES, fill=BOTH)
 
-decTab = ttk.Frame(nb_control, relief=RAISED)
-nb_control.add(decTab, text=" Decrypt ")
+dec_tab = ttk.Frame(nb_control, relief=RAISED)
+nb_control.add(dec_tab, text=" Decrypt ")
 nb_control.pack(expand=YES, fill=BOTH)
 
-
+# ------------------------------------------------------------------------------------------------------------
 # Create Exit button.
 # THIS HAS TO BE HERE IN THE CODE TO INSURE THE EXIT BUTTON IS BELOW THE NOTEBOOK TABS!
 exit_butt = Button(main_window, text="Exit", command=lambda: main_window.destroy())
 exit_butt.pack(side=RIGHT, padx=5, pady=5)
 
+# ------------------------------------------------------------------------------------------------------------
 # Frame Labels on Tabs
-enc_label_frame_message = LabelFrame(encTab, text="Unencrypted Message File")
+enc_label_frame_message = LabelFrame(enc_tab, text="Unencrypted Message File")
 enc_label_frame_message.pack(fill=BOTH, expand=YES, padx=10, pady=0)
 
-enc_label_frame_pad = LabelFrame(encTab, text="Pad file")
+enc_label_frame_pad = LabelFrame(enc_tab, text="Pad file")
 enc_label_frame_pad.pack(fill=BOTH, expand=YES, padx=10, pady=10)
 
-dec_label_frame_message = LabelFrame(decTab, text="Encrypted Message File")
+dec_label_frame_message = LabelFrame(dec_tab, text="Encrypted Message File")
 dec_label_frame_message.pack(fill=BOTH, expand=YES, padx=10, pady=0)
 
-dec_label_frame_pad = LabelFrame(decTab, text="Pad file")
+dec_label_frame_pad = LabelFrame(dec_tab, text="Pad file")
 dec_label_frame_pad.pack(fill=BOTH, expand=YES, padx=10, pady=10)
 
+# ------------------------------------------------------------------------------------------------------------
 # Encrypt and Decrypt buttons. In the tabs in the LabelFrames
-enc_button = Button(encTab, text=" Encrypt ", command=enc_button_func)
+enc_button = Button(enc_tab, text=" Encrypt ", command=enc_button_func)
 enc_button.pack(side=LEFT, padx=10, pady=5)
 enc_button.config(state=DISABLED)
 
-dec_button = Button(decTab, text=" Decrypt ", command=dec_button_func)
+dec_button = Button(dec_tab, text=" Decrypt ", command=dec_button_func)
 dec_button.pack(side=LEFT, padx=10, pady=5)
 dec_button.config(state=DISABLED)
 
+# ------------------------------------------------------------------------------------------------------------
 # Label fields for the Encrypt and Decrypt routines in the LabelFrames
 enc_label_field_message = Label(enc_label_frame_message, anchor=W, bg="white", height=1, relief="sunken")
 enc_label_field_message.pack(fill=X, padx=5)
@@ -373,9 +377,11 @@ dec_label_field_pad = Label(dec_label_frame_pad, anchor=W, bg="white", height=1,
 dec_label_field_pad.pack(fill=X, padx=5)
 dec_label_field_pad.config(font=("Arial", 12))
 
+# ------------------------------------------------------------------------------------------------------------
 # Load and View buttons in of the LabelFrames
 enc_load_message_button = Button(enc_label_frame_message, text="Load Message",
                                  command=lambda: enc_file_dialog_message())
+
 enc_load_message_button.pack(side=LEFT, padx=5)
 
 enc_load_pad_button = Button(enc_label_frame_pad, text="Load Encryption Pad", command=lambda: enc_file_dialog_pad())
@@ -383,6 +389,7 @@ enc_load_pad_button.pack(side=LEFT, padx=5)
 
 dec_load_message_button = Button(dec_label_frame_message, text="Load Message",
                                  command=lambda: dec_file_dialog_message())
+
 dec_load_message_button.pack(side=LEFT, padx=5)
 
 dec_load_pad_button = Button(dec_label_frame_pad, text="Load Decryption Pad", command=lambda: dec_file_dialog_pad())
