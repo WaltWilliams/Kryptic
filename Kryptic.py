@@ -265,18 +265,21 @@ main_window.title("Kryptic")
 # Home tab label.
 home_string = "This program performs a One-Time-Pad encryption and decryption.\n\n" \
               "History\n" \
-              "The One-Time-Pad was invented in 1882, when the Californian banker Frank Miller to secure his " \
+              "The One-Time-Pad was invented in 1882 by the California banker Frank Miller to secure his " \
               "teletype messages. In 1917 a variation of the One-Time-Pad was patented by AT&T research " \
-              "engineer Gilbert Vernam. The One-Time-Pad has been mathematically proven to be unbreakable " \
-              "provided it performed correctly." \
+              "engineer Gilbert Vernam. " \
+              "\n\n"\
+              "Security\n"\
+              "The One-Time-Pad has been mathematically proven to be unbreakable " \
+              "when performed correctly." \
               " \n\n" \
               "Using The Program\n" \
               "Encrypting and decrypting messages is fairly intuitive. Load your message and load your " \
               "One-Time-Pad and click \'Encrypt\'. Creating a One-Time-Pad to use in an encryption is " \
               "covered directly below. Decrypting a message is nearly the same except the encrypted " \
               "message might look like the One-Time-Pad.\n\n\tBoth sender and receiver MUST use the same " \
-              "One-Time-Pad.\n\nThis means you must meat with the person you wish to exchange messages" \
-              "with give them a copy of your One-Time-Pad.\n\n\tOnce a One-Time-Pad is used, it is never used again."  \
+              "One-Time-Pad.\n\nThis means you must meet with the person you wish to exchange messages " \
+              "with and give them a copy of your One-Time-Pad.\n\n\tOnce a One-Time-Pad is used, it is never used again."  \
               "\n\n" \
               "Making a One-Time-Pad\n" \
               "An example of a One-Time-Pad:\n" \
@@ -287,7 +290,7 @@ home_string = "This program performs a One-Time-Pad encryption and decryption.\n
               " \n\n" \
               "Ideally a One-Time-Pad is made up of completely \"RANDOM\" capital letters. This could be undertaken by " \
               "using 5 dice. With each roll of the dice you takes the added up values from all the dice and then " \
-              "writes down the letter according to the number corresponding to its position in the alphabet. " \
+              "write down the letter according to the number corresponding to its position in the alphabet. " \
               "Added up values over 26 are discarded and the dice will needed to rolled again. Much simpler, " \
               "you could use a 26 sided \"alphabet\" dice thus eliminating the need to add numbers from the " \
               "dice faces. One-Time-Pads can also be written as each letters position number in the alphabet; " \
@@ -295,12 +298,13 @@ home_string = "This program performs a One-Time-Pad encryption and decryption.\n
               "position number." \
               " \n\n" \
               "The Process\n" \
-              "To perform an encryption one takes the first letter in the message and the first letter " \
+              "To perform an encryption you takes the first letter in the message and the first letter " \
               "on the One-Time-Pad and take their numerical position in the alphabet and add those two numbers " \
               "together. One then starts counting at the beginning of the alphabet; Where 0 = A and 25 = Z. " \
               "If your added up value exceeds 25 start back at the beginning of the alphabet and continue " \
-              "counting where you left off. This can be short cutted for values over 25 by subtracting 26 from them. " \
-              "For example if Z = 25 and Y = 24, 25 - 24 = 49. 49 - 26 = 23, which is an X. Decryption is similar " \
+              "counting where you left off. Creating and encryption wheel simplifies this (the alphabet in a circle)." \
+              "This can be short simplified for values over 25 by subtracting 26 from them. " \
+              "For example if Z = 25 and Y = 24, 25 + 24 = 49. 49 - 26 = 23, which is an X. Decryption is similar " \
               "except it involves modular arithmetic.\n\n\tOnce a letter on the One-Time-Pad is used it is " \
               "never used again\n\nJust cross off that letter and keep going." \
               "\n\n" \
